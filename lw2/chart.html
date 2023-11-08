@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html>
+  <head lang="ru">
+    <meta="utf-8">
+    <title>Список и ЛТХ самолётов</title>
+  </head>
+  
+  <body bgcolor="#D3E7E9">
+    <p align="center">
+	  <a href="main.html">Военная авиация различных государств</a>
+	  <br>
+	  <a href="chart.html"><big><b>Список и ЛТХ самолётов</b></big></a>
+	</p>
+	  
+	<hr color="navy" size="3" widtd="100%">
+	<hr color="navy" size="2" widtd="80%" align="center">
+	<hr color="navy" size="3" widtd="100%">
+	
+	
+	<details>
+      <summary>График</summary>
+	  
+	  <form>
+	    <table cellspacing="8">
+		  <tr align="center">
+		    <th>Значение по оси ОХ</th>
+			
+			<th>Значение по оси ОУ</th>
+		  </tr>
+		  
+		  <tr align="left">
+		    <td>
+			  <input type="radio" name="ox" value="ctr"> Страна<br>
+			  
+			  <input type="radio" name="ox" value="cmp"> Компания<br>
+			  
+			  <input type="radio" name="ox" value="tp"> Тип
+			</td>
+			
+			<td>
+			  <input type="checkbox" name="oy" value="max_rad"> Макс. боевой радиус<br>
+
+			  <input type="checkbox" name="oy" value="max_sp"> Макс. скорость<br>
+
+			  <input type="checkbox" name="oy" value="max_h"> Макс. потолок высоты
+			</td>
+		  </tr>
+		</table>
+		
+		<p>
+          <input type="button" value="Построить график">	
+        </p>
+	  </form>
+	</details>
+	
+	<details>
+      <summary>Фильтр</summary>
+		<form>
+		  <p>
+		    <label>
+		      Название:
+              <input type="text" name="name">
+		    </label><br>
+		  </p>
+		  
+		  <p>
+		    <label>
+		      Страна:
+              <input type="text" name="country">
+		    </label><br>
+		  </p>
+		  
+		  <p>
+		    <label>
+		      Компания:
+              <input type="text" name="company">
+		    </label><br>
+		  </p>
+		  
+		  <p>
+		    <label>
+		      Тип:
+              <input type="text" name="type">
+		    </label><br>
+		  </p>
+		  
+		  <p>
+		    <label>
+		      Боевой радиус: от
+              <input type="number" name="rad_min" min="0" max="12000">
+			  до
+			  <input type="number" name="rad_max" min="0" max="12000">
+		    </label><br>
+		  </p>
+		  
+		  <p>
+		    <label>
+		      Макс. скорость: от
+              <input type="number" name="sp_min" min="0" max="2500">
+			  до
+			  <input type="number" name="sp_max" min="0" max="2500">
+		    </label><br>
+		  </p>
+		  
+		  <p>
+		    <label>
+		      Потолок высоты: от
+              <input type="number" name="h_min" min="0" max="25000">
+			  до
+			  <input type="number" name="h_max" min="0" max="25000">
+		    </label>	
+          </p>		
+
+          <p>
+            <input type="button" value="Найти">	
+          </p>			
+		</form>
+	  </details>
+	
+	  <details>
+		<summary>Сортировка</summary>
+		
+		<form>
+		  <p>
+		    1-й уровень
+			<select name="f_lvl">
+			  <option value="0"> Нет</option>
+              <option value="1"> Боевой радиус</option>
+              <option value="2"> Макс. скорость</option>
+              <option value="3"> Потолок высоты</option>
+            </select>
+			
+			По убыванию <input type="checkbox" name="first" value="minmax_f">
+		  </p>
+		  
+		  <p>
+		    2-й Уровень
+			<select name="s_lvl">
+              <option value="0"> Нет</option>
+              <option value="1"> Боевой радиус</option>
+              <option value="2"> Макс. скорость</option>
+              <option value="3"> Потолок высоты</option>
+            </select>
+			
+			По убыванию <input type="checkbox" name="second" value="minmax_s">
+		  </p>
+		  
+		  <p>
+		    3-й Уровень
+			<select name="t_lvl">
+              <option value="0"> Нет</option>
+              <option value="1"> Боевой радиус</option>
+              <option value="2"> Макс. скорость</option>
+              <option value="3"> Потолок высоты</option>
+            </select>
+			
+			По убыванию <input type="checkbox" name="third" value="minmax_t">
+		  </p>
+		  
+		  <p>
+            <input type="button" value="Отсортировать">	
+          </p>
+		</form>
+	  </details>
+	  
+	
+	<p>
+		<table border="3" cellspacing="0" cellpadding="4" align="center">
+		  <tr align="center">
+			<th>Название</th>
+			
+			<th>Страна произв.</th>
+			
+			<th>Компания</th>
+			
+			<th>Тип</th>
+			
+			<th>Боевой радиус,<br> км</th>
+			
+			<th>Макс. скорость,<br> км/ч</th>
+			
+			<th>Практ. потолок,<br> м</th>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Ту-22М3</td>
+			
+			<td>Россия</td>
+			
+			<td>КБ Туполева</td>
+			
+			<td>Стратегический бомбардировщик</td>
+			
+			<td>1850</td>
+			
+			<td>2300</td>
+			
+			<td>13300</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>A-10 Thunderbolt II</td>
+			
+			<td>США</td>
+			
+			<td>Fairchild Republic</td>
+			
+			<td>Штурмовик</td>
+			
+			<td>463</td>
+			
+			<td>722</td>
+			
+			<td>13380</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Typhoon</td>
+			
+			<td>ЕС</td>
+			
+			<td>Eurofighter GMBH</td>
+			
+			<td>Многоцелевой истребитель</td>
+			
+			<td>1389</td>
+			
+			<td>2450</td>
+			
+			<td>19812</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>AC-130 Spectre</td>
+			
+			<td>США</td>
+			
+			<td>Lockheed Martin</td>
+			
+			<td>Самолёт огневой поддержки</td>
+			
+			<td>2400</td>
+			
+			<td>480</td>
+			
+			<td>7576</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Су-34</td>
+			
+			<td>Россия</td>
+			
+			<td>ОКБ Сухого</td>
+			
+			<td>Истребитель-бомбардировщик</td>
+			
+			<td>1130</td>
+			
+			<td>1900</td>
+			
+			<td>17000</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>F-35 Lightning II</td>
+			
+			<td>США</td>
+			
+			<td>Lockheed Martin</td>
+			
+			<td>Истребитель-бомбардировщик</td>
+			
+			<td>2220</td>
+			
+			<td>1930</td>
+			
+			<td>15000</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Tornado</td>
+			
+			<td>Германия</td>
+			
+			<td>Panavia Aircraft</td>
+			
+			<td>Истребитель-бомбардировщик</td>
+			
+			<td>1390</td>
+			
+			<td>1480</td>
+			
+			<td>15000</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Ил-76</td>
+			
+			<td>Россия</td>
+			
+			<td>ОКБ им. С.В.Ильюшина</td>
+			
+			<td>Транспортный самолёт</td>
+			
+			<td>6500</td>
+			
+			<td>850</td>
+			
+			<td>12200</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>MB-339</td>
+			
+			<td>Италия</td>
+			
+			<td>Aermacchi</td>
+			
+			<td>Учебно-боевой самолёт</td>
+			
+			<td>1760</td>
+			
+			<td>926</td>
+			
+			<td>14630</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>KJ-2000</td>
+			
+			<td>Китай</td>
+			
+			<td>Xian Aircraft Industry Co</td>
+			
+			<td>Самолёт ДРЛО</td>
+			
+			<td>5500</td>
+			
+			<td>850</td>
+			
+			<td>10500</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Global Express</td>
+			
+			<td>Канада</td>
+			
+			<td>Bombardier</td>
+			
+			<td>Административный самолёт</td>
+			
+			<td>9360</td>
+			
+			<td>950</td>
+			
+			<td>15000</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>B-2 Spirit</td>
+			
+			<td>США</td>
+			
+			<td>Northrop Grumman</td>
+			
+			<td>Стратегический бомбардировщик</td>
+			
+			<td>5300</td>
+			
+			<td>1010</td>
+			
+			<td>15240</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>МиГ-29</td>
+			
+			<td>Россия</td>
+			
+			<td>ОКБ им. А.И.Микояна</td>
+			
+			<td>Многоцелевой истребитель</td>
+			
+			<td>1430</td>
+			
+			<td>2450</td>
+			
+			<td>18000</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Ту-160</td>
+			
+			<td>Россия</td>
+			
+			<td>ОКБ Туполева</td>
+			
+			<td>Стратегический бомбардировщик</td>
+			
+			<td>7300</td>
+			
+			<td>2200</td>
+			
+			<td>16000</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Heron</td>
+			
+			<td>Израиль</td>
+			
+			<td>IAI</td>
+			
+			<td>БПЛА</td>
+			
+			<td>1000</td>
+			
+			<td>240</td>
+			
+			<td>9150</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>U-2</td>
+			
+			<td>США</td>
+			
+			<td>Lockheed Skunk Works</td>
+			
+			<td>Самолёт-разведчик</td>
+			
+			<td>9600</td>
+			
+			<td>805</td>
+			
+			<td>21300</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>А-50</td>
+			
+			<td>Россия</td>
+			
+			<td>ТАНТК им. Г.М.Бериева</td>
+			
+			<td>Самолёт ДРЛО</td>
+			
+			<td>8500</td>
+			
+			<td>800</td>
+			
+			<td>12000</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>A310 MRTT</td>
+			
+			<td>Франция</td>
+			
+			<td>Airbus</td>
+			
+			<td>Cамолёт-заправщик</td>
+			
+			<td>8889</td>
+			
+			<td>978</td>
+			
+			<td>12100</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>A400M Atlas</td>
+			
+			<td>ЕС</td>
+			
+			<td>Airbus Military</td>
+			
+			<td>Транспортный самолёт</td>
+			
+			<td>6300</td>
+			
+			<td>802</td>
+			
+			<td>12200</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Rafale</td>
+			
+			<td>Франция</td>
+			
+			<td>Dassault Aviation</td>
+			
+			<td>Многоцелевой истребитель</td>
+			
+			<td>1800</td>
+			
+			<td>2200</td>
+			
+			<td>15240</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>JH-7</td>
+			
+			<td>Китай</td>
+			
+			<td>Xian Aircraft Industry Co</td>
+			
+			<td>Истребитель-бомбардировщик</td>
+			
+			<td>1650</td>
+			
+			<td>1800</td>
+			
+			<td>16000</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>B-52 Stratofortress</td>
+			
+			<td>США</td>
+			
+			<td>Boeing</td>
+			
+			<td>Стратегический бомбардировщик</td>
+			
+			<td>7210</td>
+			
+			<td>957</td>
+			
+			<td>16090</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Hawk</td>
+			
+			<td>Великобритания</td>
+			
+			<td>Hawker Siddeley</td>
+			
+			<td>Учебно-боевой самолёт</td>
+			
+			<td>2520</td>
+			
+			<td>1028</td>
+			
+			<td>13565</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Орион</td>
+			
+			<td>Россия</td>
+			
+			<td>АО "Кронштадт"</td>
+			
+			<td>БПЛА</td>
+			
+			<td>250</td>
+			
+			<td>200</td>
+			
+			<td>7500</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>C-295</td>
+			
+			<td>Испания</td>
+			
+			<td>CASA</td>
+			
+			<td>Транспортный самолёт</td>
+			
+			<td>3700</td>
+			
+			<td>482</td>
+			
+			<td>7620</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>TS-11 Iskra</td>
+			
+			<td>Польша</td>
+			
+			<td>PZL Mielec</td>
+			
+			<td>Учебно-боевой самолёт</td>
+			
+			<td>1250</td>
+			
+			<td>720</td>
+			
+			<td>11000</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>MQ-9 Reaper</td>
+			
+			<td>США</td>
+			
+			<td>General Atomics</td>
+			
+			<td>БПЛА</td>
+			
+			<td>1900</td>
+			
+			<td>400</td>
+			
+			<td>15000</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>SA-330 Puma</td>
+			
+			<td>Франция</td>
+			
+			<td>Sud Aviation</td>
+			
+			<td>Транспортный вертолёт</td>
+			
+			<td>580</td>
+			
+			<td>257</td>
+			
+			<td>2230</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Ка-52 «Аллигатор»</td>
+			
+			<td>Россия</td>
+			
+			<td>ОАО «Камов»</td>
+			
+			<td>Ударный вертолёт</td>
+			
+			<td>460</td>
+			
+			<td>300</td>
+			
+			<td>4000</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>E-3 Sentry</td>
+			
+			<td>США</td>
+			
+			<td>Boeing</td>
+			
+			<td>Самолёт ДРЛО</td>
+			
+			<td>1612</td>
+			
+			<td>880</td>
+			
+			<td>10700</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>AH-64 Apache</td>
+			
+			<td>США</td>
+			
+			<td>Hughes Helicopters</td>
+			
+			<td>Ударный вертолёт</td>
+			
+			<td>690</td>
+			
+			<td>300</td>
+			
+			<td>6100</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>V-22 Osprey</td>
+			
+			<td>США</td>
+			
+			<td>Bell Helicopter</td>
+			
+			<td>Транспортный СВВП</td>
+			
+			<td>690</td>
+			
+			<td>565</td>
+			
+			<td>7620</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Harrier</td>
+			
+			<td>Великобритания</td>
+			
+			<td>Hawker Siddeley</td>
+			
+			<td>Истребитель-бомбардировщик</td>
+			
+			<td>348</td>
+			
+			<td>1102</td>
+			
+			<td>13411</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Як-38</td>
+			
+			<td>Россия</td>
+			
+			<td>ОКБ Яковлева</td>
+			
+			<td>Палубный штурмовик</td>
+			
+			<td>764</td>
+			
+			<td>1150</td>
+			
+			<td>10000</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>CH-53 Sea Stallion</td>
+			
+			<td>Германия</td>
+			
+			<td>Sikorsky Aircraft</td>
+			
+			<td>Транспортный вертолёт</td>
+			
+			<td>422</td>
+			
+			<td>307</td>
+			
+			<td>5105</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Falcon 7X</td>
+			
+			<td>Франция</td>
+			
+			<td>Dassault Aviation</td>
+			
+			<td>Административный самолёт</td>
+			
+			<td>11020</td>
+			
+			<td>904</td>
+			
+			<td>15550</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>W-3 Sokol</td>
+			
+			<td>Польша</td>
+			
+			<td>PZL Swidnik</td>
+			
+			<td>Многоцелевой вертолёт</td>
+			
+			<td>745</td>
+			
+			<td>260</td>
+			
+			<td>4520</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>F-4 Phantom II</td>
+			
+			<td>США</td>
+			
+			<td>McDonnell Aircraft</td>
+			
+			<td>Истребитель-бомбардировщик</td>
+			
+			<td>2380</td>
+			
+			<td>2370</td>
+			
+			<td>18898</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>AH-2 Rooivalk</td>
+			
+			<td>ЮАР</td>
+			
+			<td>Denel Aerospace Systems</td>
+			
+			<td>Ударный вертолёт</td>
+			
+			<td>704</td>
+			
+			<td>278</td>
+			
+			<td>6100</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Ан-12</td>
+			
+			<td>Россия</td>
+			
+			<td>АНТК им. О.К.Антонова</td>
+			
+			<td>Транспортный самолёт</td>
+			
+			<td>3600</td>
+			
+			<td>660</td>
+			
+			<td>8600</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>Saab 340</td>
+			
+			<td>Швеция</td>
+			
+			<td>Saab AB</td>
+			
+			<td>Самолёт ДРЛО</td>
+			
+			<td>1735</td>
+			
+			<td>523</td>
+			
+			<td>10560</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>T-4</td>
+			
+			<td>Япония</td>
+			
+			<td>Kawasaki Heavy Industries</td>
+			
+			<td>Учебно-боевой самолёт</td>
+			
+			<td>1297</td>
+			
+			<td>1038</td>
+			
+			<td>14815</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>AMX</td>
+			
+			<td>Италия</td>
+			
+			<td>AMX International</td>
+			
+			<td>Штурмовик</td>
+			
+			<td>926</td>
+			
+			<td>1053</td>
+			
+			<td>12800</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>JAS 39 Gripen</td>
+			
+			<td>Швеция</td>
+			
+			<td>Saab AB</td>
+			
+			<td>Истребитель-бомбардировщик</td>
+			
+			<td>800</td>
+			
+			<td>2200</td>
+			
+			<td>15240</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>R-99</td>
+			
+			<td>Бразилия</td>
+			
+			<td>Embraer</td>
+			
+			<td>Самолёт ДРЛО</td>
+			
+			<td>1600</td>
+			
+			<td>834</td>
+			
+			<td>6100</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>TB2</td>
+			
+			<td>Турция</td>
+			
+			<td>Baykar Makina</td>
+			
+			<td>БПЛА</td>
+			
+			<td>150</td>
+			
+			<td>222</td>
+			
+			<td>8200</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>T-50 Golden Eagle</td>
+			
+			<td>Республика Корея</td>
+			
+			<td>KAI</td>
+			
+			<td>Учебно-боевой самолёт</td>
+			
+			<td>1850</td>
+			
+			<td>1485</td>
+			
+			<td>14630</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>EMB 314 Super Tucano</td>
+			
+			<td>Бразилия</td>
+			
+			<td>Embraer</td>
+			
+			<td>Учебно-боевой самолёт</td>
+			
+			<td>1330</td>
+			
+			<td>590</td>
+			
+			<td>10670</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>F-2</td>
+			
+			<td>Япония</td>
+			
+			<td>Mitsubishi Heavy Industries</td>
+			
+			<td>Истребитель-бомбардировщик</td>
+			
+			<td>833</td>
+			
+			<td>2450</td>
+			
+			<td>18000</td>
+		  </tr>
+		  
+		  <tr align="center">
+			<td>H-6</td>
+			
+			<td>Китай</td>
+			
+			<td>Xian Aircraft Industry Co</td>
+			
+			<td>Cтратегический бомбардировщик</td>
+			
+			<td>6000</td>
+			
+			<td>1050</td>
+			
+			<td>12800</td>
+		  </tr>
+		</table>
+	</p>
+  </body>
+</html>
