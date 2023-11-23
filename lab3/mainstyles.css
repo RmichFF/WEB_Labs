@@ -1,0 +1,104 @@
+.header {
+	width: 100%;
+	background: url("images/BG.png") repeat-x;
+	overflow: hidden;
+	text-align: right;
+	padding: 10px;
+	color: navy;
+}
+
+.header h2 {
+	width: 100%;
+	float: top;
+	margin: 20px auto 40px;
+	text-align: center;
+}
+
+.header a {
+	font-size: 1.5em;
+	padding: 5px 20px;
+	margin: 2px 2px;
+	text-decoration: none;
+}
+
+
+
+.main {
+	width: 90%;
+	padding: 1%;
+	margin: 10px auto;
+	overflow: hidden;
+}
+
+.content{
+	width: 46%;
+	background-color: rgb(147, 184, 219);
+	padding: 1%;
+	margin: 1%;
+	overflow: hidden;
+	text-align: justify;
+}
+
+.cont-right {
+	float: right;
+}
+
+.cont-left {
+	float: left;
+}
+
+img {
+	width: 46%;
+}
+
+.cont-left img {	
+    margin: 0.5% 1% 0.5% 3%; 
+	float: right;
+}
+
+.cont-left div {
+	margin: 0.5% 1%;
+}
+
+.cont-right img {
+	margin: 0.5% 3% 0.5% 1%;
+	vertical-align: middle;
+}
+
+.cont-right p {
+	margin: 1%;
+	width: 100%;
+}
+
+div h3 {
+	display: inline-block;
+	width: 40%;
+	vertical-align: middle;
+}
+
+.content a {
+	display: inline-block;
+	float: right;
+	font-size: 1.5em;
+	text-decoration: none;
+}
+
+.closer {
+	width: 100%;
+	border-top: 2px black solid;
+}
+
+.closer div {
+	width: 47%;
+	padding: 1%;
+}
+
+.right {	
+	text-align: right;
+	float: right;
+}
+
+.left {
+	text-align: left;
+	float: left;
+}
