@@ -1,0 +1,169 @@
+.upline {
+	display: flex;
+	background-color: SteelBlue;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+.upline input {
+	width: 50%;
+	padding: 4px;
+	margin: 3px;
+}
+
+
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	width: 98%;
+	background: url("images/BG.png") repeat-x;
+	overflow: hidden;
+	color: navy;
+	padding: 1%;
+	margin: 1% auto;
+}
+
+.menu { 
+	display: flex;
+	justify-content: space-evenly;
+	width: 50%;
+}
+
+.menu > a {
+	display: block;
+	width: 23%;
+	font-size: 1.5em;
+	text-decoration: none;
+	padding: 2%;
+	margin: 0% 1%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.menu > a.current {
+	background-color: rgba(147, 184, 219, 0.7);
+}
+
+a:visited {
+	color: navy;
+}
+
+.header h2 {
+	width: 100%;
+	text-align: center;
+}
+
+
+
+
+.main {
+	display: flex;
+	align-items: stretch;
+	width: 98%;
+	margin: 1vw auto;
+	overflow: hidden;
+}
+
+.article {
+	width: 38%;
+	background-color: rgb(147, 184, 219);
+	overflow: hidden;
+	text-align: justify;
+	margin: 0.5vw;
+	padding: 0.5vw;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	width: 58%;
+}
+
+.container > .article{
+	width: 100%;
+}
+
+.article img {	
+    width: 46%;
+	float: left;
+	margin: 1%;
+	padding: 1%;
+	vertical-align: middle;
+}
+
+.container img {	
+	float: none;
+}
+
+.article h3 {
+	width: 40%;
+	margin: 1%;
+	display: inline-block;
+}
+
+.article p {
+	width: 92%;
+	margin: 1%;
+	padding: 0% 1% 0%;
+}
+
+.article div {
+	float: right;
+}
+
+.article a {
+	display: inline-block;
+	float: right;
+	font-size: 1.5em;
+	text-decoration: none;
+}
+
+
+
+
+.footer {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	border-top: 2px black solid;
+	align-items: flex-end;
+}
+
+.footer > div {
+	margin: 0.3vw;
+	padding: 0.3vw;
+}
+
+
+
+@media (max-width: 600px) {
+	.header {
+		background: none;
+	}
+	
+	.menu {
+		width: 90%;
+		margin: auto;
+		flex-wrap: wrap;
+	}
+	
+	.menu > a {
+		width: 40%;
+		text-align: center;
+	}
+
+	.main {
+		flex-direction: column;
+	}
+	
+	.article {
+		width: 98%;
+	}
+	
+	.container {
+		width: 98%;
+	}
+}
