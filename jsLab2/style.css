@@ -1,0 +1,23 @@
+.error {
+    border: solid thin red;
+}
+
+.calculation {
+    margin: auto;
+    width: 30%;
+    overflow: hidden;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    height: 50px;
+}
+
+input[type="number"] {
+    width: 80px;
+}
+   

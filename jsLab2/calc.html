@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="ru">
+    <meta="utf-8">
+    <link rel = "stylesheet" type = "text/css" href = "style.css">
+    <title>Комплексный калькулятор</title>
+</head>
+
+<body>
+    <div class="calculation">
+        <div class = "image">
+            <img src="images/ex.png" id="image">
+        </div>
+        <div id="input">
+            <form>
+                <fieldset>
+                    <legend>Форма записи</legend>
+                    <input  type="radio"  name="compform" value="ex" checked> Показательная <br>
+                    <input  type="radio"  name="compform" value="tg"> Тригонометрическая <br>
+                    <p>
+                        <input type="button" value="Показать" onClick="changeView(this.form)">
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Компоненты числа</legend>
+                    <p>
+                        <label>r = 
+                            <input  type="number"  id="input1"> <br>
+                        </label> 
+                    </p>
+                    <p>
+                        <label>φ = 
+                            <input  type="number"  id="input2"> <br>
+                        </label>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Найти</legend>
+                    <select multiple id="task">
+                        <option value="task1">Другие формы</option>
+                        <option value="task2">Мнимая часть</option>
+                        <option value="task3">Действительная часть</option>
+                        <option value="task4">Аргумент</option>
+                    </select>
+                    <p>
+                        <input type="button" value="Вычислить" onClick="calculate(this.form)">
+                        <input type="reset" value="Очистить" onClick="cleanPage()">
+                    </p>
+                </fieldset>
+            </form>
+        </div>
+
+        <div id="output">
+        </div>
+    </div>
+</body>
+<script src="calc.js"></script>
+</html>  
+	
