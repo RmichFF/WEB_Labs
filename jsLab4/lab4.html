@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Лабораторная работа 4</title>
+    <script src="http://d3js.org/d3.v7.min.js"> </script>
+    <style>
+        svg {
+            border:1px solid grey;
+        }
+
+        div {
+            display: flex;
+        }
+
+        p {
+            margin: 8px;
+        }
+    </style>
+</head>
+<body>
+    <form id="setting" >
+        <div>
+            <p><b>Координаты рисунка</b><br>
+                <label for="cx">x: </label>
+                <input type="number" id="cx" value="300" max=600 min=0>
+                <label for="cy">y: </label>
+                <input type="number" id="cy" value="300" max=600 min=0>
+            </p>
+
+            <p class="anim"><b>Время анимации</b><br>
+                <label for="time">Время (с): </label>
+                <input type="number" id="time" value="5" max=600 min=0>
+            </p>
+
+            <p><b>Масштаб</b><br>
+                <label for="mx">По x: </label>
+                <input type="number" id="mx" value="1" max=10 min=0>
+                <label class="anim" for="mxend">до: </label>
+                <input class="anim" type="number" id="mxend" value="1.5" max=10 min=0><br>
+                <label for="my">По y: </label>
+                <input type="number" id="my" value="1" max=10 min=0>
+                <label class="anim" for="myend">до: </label>
+                <input class="anim" type="number" id="myend" value="1.5" max=10 min=0><br>
+                <span class="anim"><input type="checkbox" id="opcycle" value="0"> Зациклить масштабирование?<br></span>
+                <label class="cycle" for="cyc">Циклов: </label>
+                <input class="cycle" type="number" id="cyc" value="0" max=360 min=0>
+            </p>
+
+            <p><b>Поворот</b><br>
+                <label for="ang">Угол (2*Pi): </label>
+                <input type="number" id="ang" value="0" max=360 min=0>
+                <label class="anim" for="angend">до: </label>
+                <input class="anim" type="number" id="angend" value="2" max=360 min=0><br>
+            </p>
+        </div>
+        <input type="button" value="Нарисовать" id="draw">
+        <input class="anim" type="button" value="Анимировать" id="animate">
+        <input type="button" value="Очистить" id="clear">
+        <input type="checkbox" id="anim" value="0"> Включить анимацию?
+        <select class="anim" id="aType">
+            <option value="1" selected>Linear</option>
+            <option value="2">Elastic</option>
+            <option value="3">Bounce</option>
+        </select>
+    </form>
+</body>
+<script src="lab4.js"></script>
+</html>
