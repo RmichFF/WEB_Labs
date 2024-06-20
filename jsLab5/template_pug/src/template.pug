@@ -1,0 +1,38 @@
+block variables
+  -var menu = {'Основное':'./index.html', 'Галерея':'#', 'Таблицы':'./table.html', 'Статьи':'./article.html'}
+
+block functional
+  mixin createMenu(current)
+    div.menu
+      each link, name in menu
+        if name == current
+          a.menu__link.menu__link_current(href=link)=name
+        else
+          a.menu__link(href=link)=name
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title #{title}
+    link(rel="stylesheet", href="css/allstyles.css")
+    script(src="http://d3js.org/d3.v7.js")
+  body
+    block header
+      form.upline
+        input.upline__searchbar(type="text" name="search" id="search")
+        label(for="search") &#128269
+
+      div.header
+        +createMenu(activeElem)
+        h1.header__title=title
+ 
+    block content
+
+    block footer
+      div.footer
+        div.footer__item &copy; Нечепуренко Р.А., Б9121-09.03.04(6), 2023-2024
+	  
+        div.footer__item &#9993; Контакты
+    

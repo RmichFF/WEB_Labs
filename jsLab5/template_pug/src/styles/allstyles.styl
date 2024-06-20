@@ -1,0 +1,295 @@
+block-param(w, m, p)
+  width w
+  margin m
+  padding p
+
+full = 100%
+
+navy-bord = navy 0.5vh solid
+
+.upline
+  display flex
+  background-color SteelBlue
+  width full
+  justify-content center
+  align-items center
+  overflow hidden
+  border-bottom navy-bord
+
+  &__searchbar
+    block-param(50%, 10px, 4px)
+
+
+.header
+  display flex
+  flex-direction column
+  align-items flex-end
+  background linear-gradient(rgba(25, 25, 112, 0.5), rgba(25, 25, 112, 0.5)), url("../images/B52STF_BG.jpg")
+  background-position 50% 65%
+  overflow hidden
+  color LightCyan
+  margin auto
+  padding 1vh
+
+  @media (max-width: 600px)
+    background SteelBlue
+
+  &__title
+    width full
+    text-align center
+    order 2
+    @media (max-width: 600px)
+      order 1
+
+
+.menu 
+  order 1
+  display flex
+  align-items flex-start
+  justify-content space-evenly
+
+  &__link
+    display block
+    font-size 1.5em
+    text-decoration none
+    overflow hidden
+    text-overflow ellipsis
+    background-color rgba(25, 25, 112, 0.2)
+    block-param(20vh, 0.5vh 0.5vw, 1vh 0.5vw)
+    color LightCyan
+
+    @media (max-width: 600px)
+      width 46%
+      text-align center
+
+    &_current
+      background-color rgba(25, 25, 112, 0.7)
+
+    &:hover
+      transition 0.5s
+      background-color rgba(25, 25, 112, 0.7)
+
+    &:visited
+      color LightCyan
+
+
+  @media (max-width: 600px)
+    width full
+    margin auto
+    flex-wrap wrap
+    order 2
+
+
+.main
+  display flex
+  flex-direction column
+  align-items stretch
+  overflow hidden
+  background linear-gradient(SteelBlue, LightBlue, SteelBlue)
+  margin auto
+  padding 0.5vw
+
+  &__article
+    display flex
+    flex-direction row
+    align-items center
+    background-color LightSteelBlue
+    overflow hidden
+    border SteelBlue 3px solid
+    block-param(95%, 0.5vw auto, 0.5vw)
+    @media (max-width: 600px)
+      flex-direction column
+
+  &__image
+    block-param(20%, 1vh 1vw, 0)
+    min-width 300px
+    border SteelBlue 3px solid
+
+    &_left
+      order 1
+
+    &_right
+      order 3
+
+    @media (max-width: 600px)
+      order 1
+
+  &__topic
+    order 2
+    margin: 1vh 1vw
+  
+  &__cont-topic
+    width 65%
+    &_sub
+      width 28%
+    @media (max-width: 600px)
+      width 98%
+
+  &__header
+    text-align center
+    margin 1vh 1vw
+
+  &__text
+    text-align justify
+
+  &__link
+    display inline-block
+    float right
+    font-size 1.5em
+    text-decoration none
+    color navy
+    &:visited
+      color navy
+    &:hover
+      color red
+      transition 0.5s
+
+  &__container
+    display flex
+    flex-direction row
+    @media (max-width: 600px)
+      flex-direction column
+
+
+
+.footer
+  display flex
+  align-self flex-start
+  width full
+  justify-content space-between
+  border-top navy-bord
+  align-items flex-end
+  background-color SteelBlue
+
+  &__item
+    margin 0.5vw
+    padding 0.5vw
+
+
+.gallery
+  display flex
+  flex-direction row
+  justify-content space-evenly
+  align-items center
+  border-top navy-bord
+  border-bottom @border-top
+  overflow hidden
+  background linear-gradient(Navy, SteelBlue)
+
+  @media (max-width: 600px)
+    flex-wrap wrap
+    background SteelBlue
+  &__item
+    border 0.3vw navy solid
+    border-radius 5%
+    height 12vw
+    margin 2vh auto
+
+    &:hover
+      transform scale(1.1)
+      transition 1s
+
+    @media (max-width: 600px)
+      height 25vw
+      width 40vw
+
+
+.main-table
+  flex-direction row
+  border-top navy-bord
+  justify-content space-evenly
+  align-items flex-start
+
+  @media (max-width: 600px)
+      flex-direction column
+
+  &__form-topic
+    width 30%
+    flex-direction column
+    @media (max-width: 600px)
+      width 95%
+
+  &__buttons
+    display flex
+    flex-direction row
+    justify-content space-between
+
+  &__button
+    background LightSteelBlue
+    border SteelBlue 0.4vh solid
+    border-radius 10%
+    &:hover
+      background-color SteelBlue
+      border navy-bord
+      color LightSteelBlue
+      transition 0.3s
+
+  &__folder
+    &:hover
+      cursor pointer
+      font-weight bold
+       
+
+
+.table
+  width 100%
+  border navy 4px solid
+  border-collapse collapse
+  text-align center
+  font-size 1.3vw
+  background linear-gradient(SkyBlue, LightSteelBlue, LightSteelBlue, SteelBlue)
+
+  @media (max-width: 900px)
+    font-size 1.6vw
+
+  @media (max-width: 600px)
+    font-size 1.9vw
+
+  &__data
+    border navy 2px solid
+    padding 0.5vw
+
+    &_head
+      background SteelBlue
+    
+
+.submenu
+  background SteelBlue
+  text-align center
+  border-top navy-bord
+  border-bottom @border-top
+  
+  &__link
+    block-param(30vh, 0, 1vh 0.5vw)
+    border-left navy 0.25vh solid
+    border-right @border-left
+    flex-grow 1
+    @media (max-width: 600px)
+      border navy 1px solid
+
+
+body
+  margin 0
+  padding 0
+
+svg
+  border navy 4px solid
+  border-collapse collapse
+  background-color white
+
+.svg
+  display flex
+  background-color SteelBlue
+  justify-content center
+  align-items center
+  padding 5px
+
+svg text {
+ font: 8px Verdana;
+}
+
+svg path, line {
+ fill: none;
+ stroke: #333333;
+ width: 1px;
+}

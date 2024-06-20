@@ -1,0 +1,52 @@
+div.main-table__form-topic.main__article
+  details
+    summary.main-table__folder График
+    form.graph
+      table(cellspacing="8")
+        tr
+          th(id="axisX") Значение по оси ОХ
+
+          th(id="axisY") Значение по оси ОУ
+        tr
+          each info, axis in {"ox":{"radio":{"Страна произв.":"Страна", "Компания":"Компания", "Тип":"Тип"}}, "oy":{"checkbox":{"Боевой радиус, км":"Макс. боевой радиус", "Макс. скорость, км/ч":"Макс. скорость", "Практ. потолок, м":"Макс. потолок высоты"}}}
+            td
+              each info2, tp in info
+                each name, val in info2
+                  p
+                    input(type=tp class=tp name=axis value=val)
+                    label=name
+      select(id="gtype")
+        option(value="0" selected) Точечный
+        option(value="1") Гистограмма
+      div.main-table__buttons
+        each name, tp in {"button":["Построить график", "show-plot"], "reset":["Очистить", "clear-svg"]}
+          input.main-table__button(type=tp value=name[0] id=name[1])
+div.main-table__form-topic.main__article
+  details
+    summary.main-table__folder Фильтр
+    form(id = "filter")
+      each name, id in {"name":"Название: ", "country":"Страна: ", "company":"Компания: ", "type":"Тип: "}
+        p
+          label=name
+            input(type="text" id=id)
+      each name, id in {"rad":"Боевой радиус", "sp":"Макс. скорость", "h":"Практ. потолок"}
+        p
+          label=name+" от "
+            input(type="number" id=id+"Min" min="0" max="25000")
+          label=" до "
+            input(type="number" id=id+"Max" min="0" max="25000")
+      div.main-table__buttons
+        each name, tp in {"button":["Отфильтровать", 'filterBut'], "reset":["Сбросить", 'clearFilter']}
+          input.main-table__button(type=tp value=name[0] id=name[1])       
+div.main-table__form-topic.main__article
+  details
+    summary.main-table__folder Сортировка
+    form(id = "sort")
+      each num, name in {"desc1":"1","desc2":"2","desc3":"3"}
+        p=num+"-й уровень "
+          select(id=num)
+          label=" По убыванию "
+          input(type="checkbox" id=name value="minmax_f")
+      div.main-table__buttons
+        each name, tp in {"button":["Отсортировать", "sortBut"], "reset":["Сбросить", "clearSort"]}
+          input.main-table__button(type=tp value=name[0] id=name[1])
