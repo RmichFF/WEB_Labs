@@ -1,0 +1,196 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.header h2 {
+  display: block;
+  font-family: 'Arial', 'sans-serif';
+  font-style: italic;
+  padding: 0px 10px;
+  width: 40%;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2px;
+}
+
+.but {
+  background-color: rgb(64, 58, 129);
+  border-radius: 100%;
+  margin: 8px;
+  padding: 10px;
+  border: 0;
+  cursor:pointer;
+}
+
+.header {
+  display: flex;
+  background: linear-gradient(to right, rgb(63, 57, 99), rgb(31, 28, 63));
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 0.3vw, solid, rgb(26, 24, 50);
+}
+
+.searchbar {
+  width: 90%;
+  margin: 10px;
+  padding: 10px; 
+  border: 0;
+  border-radius: 20px;
+}
+
+body {
+  background: url("./images/TU22M3_SP.jpg");
+  background-size: cover;
+  color: white;
+  background-position: 50%;
+ }
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 50vw;
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+  background: linear-gradient(to left, rgb(63, 57, 99), rgb(31, 28, 63));
+  border-top: 0.3vw, solid, rgb(26, 24, 50);
+}
+
+h1 {
+  font-family: 'Impact';
+  letter-spacing: 3px;
+  color: rgb(255, 255, 255);
+  line-height: 70px;
+  margin: 20px;
+  text-shadow: 1px 1px 9px black;
+}
+
+span {
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  0%   { opacity:0; }
+  10%  { opacity:0.7; }
+  90%  { opacity:0.7; }
+  100% { opacity:0; }
+}
+
+.citation {
+  margin: 50px;
+  margin-top: 100px;
+  font-family: 'Bookman', 'URW Bookman L', serif;
+  width: 50%;
+  opacity:0;  
+  animation: fadeIn 15s infinite;
+  text-shadow: 1px 1px 4px rgb(219, 219, 219);
+  font-style: italic;
+}
+
+.quote {
+  font-size: 25px;
+  text-align: center;
+}
+
+.author {
+  font-size: 20px;
+  text-align: right;
+}
+
+.visible {
+  
+}
+
+.hidden {
+  display: none;
+}
+
+.table {
+  width: 100%;
+  border: 3px solid rgb(34, 31, 40);
+  border-collapse: collapse;
+  text-align: center;
+  background-color: rgba(37, 35, 57, 0.615);
+}
+
+th {
+  border: 3px solid rgb(34, 31, 40)black;
+  margin: 0px;
+}
+
+td {
+  border: 2px solid rgb(34, 31, 40);
+  margin: 0px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(20deg, rgb(63, 57, 99), rgba(0, 0, 0, 0.814), rgb(26, 24, 54));
+  flex-grow: 1;
+}
+
+.main {
+  width: 50%;
+}
+
+.submain {
+  display: flex;
+  flex-direction:column;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+.button, .prbutton{
+  width: 33%;
+  background-color: rgb(120, 118, 148);
+  margin: 1px;
+  padding: 10px;
+  border: 3px solid rgb(34, 31, 40);
+  cursor:pointer;
+  color: white;
+}
+
+.button:hover, .prbutton:hover {
+  background-color: rgb(92, 90, 113);
+  transition: 1s;
+}
+
+.prbutton {
+
+  background-color: rgb(75, 74, 93);
+  color: rgba(255, 255, 255, 0.558);
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.item {
+  margin: 0.5vw;
+  padding: 0.5vw;
+}
